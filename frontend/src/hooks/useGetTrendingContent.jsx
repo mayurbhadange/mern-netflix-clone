@@ -8,7 +8,7 @@ const useGetTrendingContent = () => {
 
     useEffect(() => {
         const getTrendingContent = async () => {
-            const res = await axios.get(`/api/v1/${contentType}/trending`)
+            const res = await axios.get(`https://netflixclone-qsk0.onrender.com/api/v1/${contentType}/trending`)
             setTrendingContent(res.data.content);
         }
         getTrendingContent();

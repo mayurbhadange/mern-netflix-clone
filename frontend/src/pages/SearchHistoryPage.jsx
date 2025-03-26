@@ -29,7 +29,7 @@ const SearchHistoryPage = () => {
   useEffect(() => {
     const getSearchHistory = async () => {
       try{
-        const res = await axios.get('/api/v1/search/history');
+        const res = await axios.get('https://netflixclone-qsk0.onrender.com/api/v1/search/history');
         setSearchHistory(res.data.content);
       }catch(error){
         console.log(error.message);
@@ -41,7 +41,7 @@ const SearchHistoryPage = () => {
 
   const handleDelete = async (entry) => {
     try{
-      await axios.delete(`/api/v1/search/history/${entry.id}`);
+      await axios.delete(`https://netflixclone-qsk0.onrender.com/api/v1/search/history/${entry.id}`);
       setSearchHistory(searchHistory.filter((item) => item.id !== entry.id));
     }
     catch(error){

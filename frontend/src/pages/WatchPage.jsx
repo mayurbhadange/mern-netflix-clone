@@ -24,7 +24,7 @@ const WatchPage = () => {
     useEffect(() => {
         const getTrailers = async () => {
             try {
-                const res = await axios.get(`/api/v1/${contentType}/${id}/trailers`);
+                const res = await axios.get(`https://netflixclone-qsk0.onrender.com/api/v1/${contentType}/${id}/trailers`);
                 setTrailers(res.data.trailers);
                 // setLoading(false);
             } catch (error) {
@@ -39,7 +39,7 @@ const WatchPage = () => {
     useEffect(() => {
         const getSimilarContent = async () => {
             try {
-                const res = await axios.get(`/api/v1/${contentType}/${id}/similar`);
+                const res = await axios.get(`https://netflixclone-qsk0.onrender.com/api/v1/${contentType}/${id}/similar`);
                 setSimilarContent(res.data.content);
                 // setLoading(false);
             } catch (error) {
@@ -54,7 +54,7 @@ const WatchPage = () => {
     useEffect(() => {
         const getContentDetails = async () => {
             try {
-                const res = await axios.get(`/api/v1/${contentType}/${id}/details`);
+                const res = await axios.get(`https://netflixclone-qsk0.onrender.com/api/v1/${contentType}/${id}/details`);
                 setContent(res.data.content);
                 // setLoading(false);
             } catch (error) {
