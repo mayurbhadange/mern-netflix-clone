@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react'
-import { useContentStore } from '../store/content';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import { useContentStore } from "../store/content";
+import axios from "axios";
 
 const useGetTrendingContent = () => {
-  const [trendingContent, setTrendingContent] = React.useState(null);
-    const {contentType} = useContentStore();
+	const [trendingContent, setTrendingContent] = useState(null);
+	const { contentType } = useContentStore();
 
-    useEffect(() => {
-        const getTrendingContent = async () => {
-            const res = await axios.get(`https://netflixclone-qsk0.onrender.com/api/v1/${contentType}/trending`)
-            setTrendingContent(res.data.content);
-        }
-        getTrendingContent();
-    }, [contentType]);
+	useEffect(() => {
+		const getTrendingContent = async () => {
+			const res = await axios.get(`/api/v1/${contentType}/trending`);
+			setTrendingContent(res.data.content);
+		};
 
-    return {trendingContent};
-}
+		getTrendingContent();
+	}, [contentType]);
 
-export default useGetTrendingContent
+	return { trendingContent };
+};
+export default useGetTrendingContent;
